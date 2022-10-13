@@ -25,7 +25,7 @@ echo "=========================================="
 
 get_python_version()
 {
-  opkg list | grep python3-base | head -n 1 | grep -Eo '\d+\.\d+'
+  echo "3.9"
 }
 
 get_version()
@@ -74,11 +74,6 @@ opkg install \
   patch \
   unzip \
   libjpeg-turbo
-
-# openwrt master doesn't have this package
-opkg install python3-gdbm || true
-# numpy requires hard floating point support and is missing on some MIPS architectures
-opkg install python3-numpy  || true
 
 cd /tmp/
 
