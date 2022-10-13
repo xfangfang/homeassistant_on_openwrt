@@ -25,7 +25,8 @@ echo "=========================================="
 
 get_python_version()
 {
-  echo "3.9"
+  # using builtin python3  
+  python3 -c """import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')"""
 }
 
 get_version()
