@@ -1,7 +1,7 @@
 # Homeassistant on OpenWrt
 
 This repo provides tools to install the latest version of Home Assistant. (2022.8.0)
-on a system with OpenWrt 21.02+ installed. It provides the reduced version of HA with only minimal list of components 
+on a system with lean's LEDE installed. It provides the reduced version of HA with only minimal list of components 
 included. Additionally, it keeps MQTT, ESPHome, and ZHA components as they are 
 widely used with smart home solutions.
 
@@ -10,13 +10,15 @@ It is distributed with a shell script that downloads and installs everything tha
 ### Requirements:
 - 256 MB storage space
 - 128 MB RAM
-- OpenWrt 21.02.0 or newer installed
+- lean's LEDE with python3 and some pre installed python3-libraries
+
+(I provides a compilation configuration for Xiaomi R3P: r3p.config)
 
 ## Generic installation
 Then, download the installer and run it.
 
 ```sh
-wget https://raw.githubusercontent.com/openlumi/homeassistant_on_openwrt/21.02/ha_install.sh -O - | sh
+wget https://raw.githubusercontent.com/xfangfang/homeassistant_on_openwrt/lean/ha_install.sh -O - | sh
 ```
 
 After script prints `Done.` you have Home Assistant installed. 
