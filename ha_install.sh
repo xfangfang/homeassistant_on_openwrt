@@ -283,6 +283,7 @@ mv \
   esphome \
   fan \
   frontend \
+  ffmpeg \
   geo_location \
   google_assistant \
   google_translate \
@@ -429,20 +430,18 @@ cd ../..
 sed -i 's/        "/        # "/' homeassistant/generated/config_flows.py
 sed -i 's/    # "mqtt"/    "mqtt"/' homeassistant/generated/config_flows.py
 sed -i 's/    # "esphome"/    "esphome"/' homeassistant/generated/config_flows.py
-sed -i 's/    # "met"/    "met"/' homeassistant/generated/config_flows.py
-sed -i 's/    # "radio_browser"/    "radio_browser"/' homeassistant/generated/config_flows.py
 if [ $LUMI_GATEWAY ]; then
   sed -i 's/    # "zha"/    "zha"/' homeassistant/generated/config_flows.py
 fi
 
 # disabling all zeroconf services
-sed -i 's/^    "_/    "_disabled_/' homeassistant/generated/zeroconf.py
+# sed -i 's/^    "_/    "_disabled_/' homeassistant/generated/zeroconf.py
 # re-enable required ones
-sed -i 's/_disabled_esphomelib./_esphomelib./' homeassistant/generated/zeroconf.py
-sed -i 's/_disabled_ipps./_ipps./' homeassistant/generated/zeroconf.py
-sed -i 's/_disabled_ipp./_ipp./' homeassistant/generated/zeroconf.py
-sed -i 's/_disabled_printer./_printer./' homeassistant/generated/zeroconf.py
-sed -i 's/_disabled_miio./_miio./' homeassistant/generated/zeroconf.py
+# sed -i 's/_disabled_esphomelib./_esphomelib./' homeassistant/generated/zeroconf.py
+# sed -i 's/_disabled_ipps./_ipps./' homeassistant/generated/zeroconf.py
+# sed -i 's/_disabled_ipp./_ipp./' homeassistant/generated/zeroconf.py
+# sed -i 's/_disabled_printer./_printer./' homeassistant/generated/zeroconf.py
+# sed -i 's/_disabled_miio./_miio./' homeassistant/generated/zeroconf.py
 
 # disabling all supported_brands
 sed -i 's/^    /    # /' homeassistant/generated/supported_brands.py
