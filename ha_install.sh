@@ -430,6 +430,10 @@ cd ../..
 sed -i 's/        "/        # "/' homeassistant/generated/config_flows.py
 sed -i 's/    # "mqtt"/    "mqtt"/' homeassistant/generated/config_flows.py
 sed -i 's/    # "esphome"/    "esphome"/' homeassistant/generated/config_flows.py
+sed -i 's/    # "xiaomi_miio"/    "xiaomi_miio"/' homeassistant/generated/config_flows.py
+sed -i 's/    # "xiaomi_ble"/    "xiaomi_ble"/' homeassistant/generated/config_flows.py
+sed -i 's/    # "xiaomi_aqara"/    "xiaomi_aqara"/' homeassistant/generated/config_flows.py
+sed -i 's/    # "homekit"/    "homekit"/' homeassistant/generated/config_flows.py
 if [ $LUMI_GATEWAY ]; then
   sed -i 's/    # "zha"/    "zha"/' homeassistant/generated/config_flows.py
 fi
