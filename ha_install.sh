@@ -70,75 +70,10 @@ PYTHON_VERSION=$(get_python_version)
 echo "Detected Python ${PYTHON_VERSION}"
 LUMI_GATEWAY=$(is_lumi_gateway)
 
-# Install them first to check Openlumi feed id added
-opkg install \
-  python3-base \
-  python3-pynacl \
-  python3-ciso8601
-
 opkg install \
   patch \
   unzip \
-  libjpeg-turbo \
-  python3-aiohttp \
-  python3-aiohttp-cors \
-  python3-async-timeout \
-  python3-asyncio \
-  python3-attrs \
-  python3-bcrypt \
-  python3-boto3 \
-  python3-botocore \
-  python3-certifi \
-  python3-cffi \
-  python3-cgi \
-  python3-cgitb \
-  python3-chardet \
-  python3-codecs \
-  python3-cryptodome \
-  python3-cryptography \
-  python3-ctypes \
-  python3-dateutil \
-  python3-dbm \
-  python3-decimal \
-  python3-defusedxml \
-  python3-distutils \
-  python3-docutils \
-  python3-email \
-  python3-greenlet \
-  python3-idna \
-  python3-jinja2 \
-  python3-jmespath \
-  python3-light \
-  python3-logging \
-  python3-lzma \
-  python3-markupsafe \
-  python3-multidict \
-  python3-multiprocessing \
-  python3-ncurses \
-  python3-netifaces \
-  python3-openssl \
-  python3-pip \
-  python3-pkg-resources \
-  python3-ply \
-  python3-pycparser \
-  python3-pydoc \
-  python3-pyopenssl \
-  python3-pytz \
-  python3-requests \
-  python3-s3transfer \
-  python3-setuptools \
-  python3-six \
-  python3-sqlite3 \
-  python3-unittest \
-  python3-urllib \
-  python3-urllib3 \
-  python3-xml \
-  python3-yaml \
-  python3-yarl \
-  python3-netdisco \
-  python3-pillow \
-  python3-cryptodomex \
-  python3-slugify
+  libjpeg-turbo
 
 # openwrt master doesn't have this package
 opkg install python3-gdbm || true
