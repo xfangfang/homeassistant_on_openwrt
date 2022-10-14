@@ -104,6 +104,7 @@ $(version sqlalchemy)  # recorder requirement
 # homeassistant manifest requirements
 $(version async-upnp-client)
 $(version fnvhash)
+$(version ha_ffmpeg)
 $(version PyQRCode)
 $(version pyMetno)
 $(version mutagen)
@@ -112,9 +113,11 @@ $(version gTTS)
 $(version aioesphomeapi)
 $(version zeroconf)
 $(version securetar)
+micloud
 
 # fixed dependencies
 python-jose[cryptography]==3.2.0  # (pycognito dep) 3.3.0 is not compatible with the python3-cryptography in the feed
+pyatv[cryptography]==0.10.0
 
 # extra services
 hass-configurator==0.4.1
@@ -258,6 +261,7 @@ mv \
   analytics \
   api \
   application_credentials \
+  apple_tv \
   auth \
   automation \
   backup \
@@ -292,6 +296,7 @@ mv \
   history \
   homeassistant \
   homeassistant_alerts \
+  homekit \
   http \
   humidifier \
   image \
@@ -398,6 +403,7 @@ sed -i 's/netdisco==[0-9\.]*/netdisco/' discovery/manifest.json
 sed -i 's/PyNaCl==[0-9\.]*/PyNaCl/' mobile_app/manifest.json
 sed -i 's/defusedxml==[0-9\.]*/defusedxml/' ssdp/manifest.json
 sed -i 's/netdisco==[0-9\.]*/netdisco/' ssdp/manifest.json
+sed -i 's/pyatv==[0-9\.]*/pyatv/' apple_tv/manifest.json
 
 if [ $LUMI_GATEWAY ]; then
   # remove unwanted zha requirements
@@ -439,13 +445,13 @@ if [ $LUMI_GATEWAY ]; then
 fi
 
 # disabling all zeroconf services
-# sed -i 's/^    "_/    "_disabled_/' homeassistant/generated/zeroconf.py
+sed -i 's/^    "_/    "_disabled_/' homeassistant/generated/zeroconf.py
 # re-enable required ones
-# sed -i 's/_disabled_esphomelib./_esphomelib./' homeassistant/generated/zeroconf.py
-# sed -i 's/_disabled_ipps./_ipps./' homeassistant/generated/zeroconf.py
-# sed -i 's/_disabled_ipp./_ipp./' homeassistant/generated/zeroconf.py
-# sed -i 's/_disabled_printer./_printer./' homeassistant/generated/zeroconf.py
-# sed -i 's/_disabled_miio./_miio./' homeassistant/generated/zeroconf.py
+sed -i 's/_disabled_esphomelib./_esphomelib./' homeassistant/generated/zeroconf.py
+sed -i 's/_disabled_ipps./_ipps./' homeassistant/generated/zeroconf.py
+sed -i 's/_disabled_ipp./_ipp./' homeassistant/generated/zeroconf.py
+sed -i 's/_disabled_printer./_printer./' homeassistant/generated/zeroconf.py
+sed -i 's/_disabled_miio./_miio./' homeassistant/generated/zeroconf.py
 
 # disabling all supported_brands
 sed -i 's/^    /    # /' homeassistant/generated/supported_brands.py
